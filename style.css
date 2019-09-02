@@ -20,6 +20,8 @@ header {
     height: 60px;
 }
 
+/* ///// MENU/NAV BAR ///// */
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -100,12 +102,58 @@ ul#menu {
 
 #logo {
     display: flex;
+    align-items: center;
 }
 
 #logo img {
     margin: 5px;
     margin-left: 15px;
     margin-right: 15px;
+}
+
+/* ///// MENU BURGER ///// */
+
+#bouton_menu_burger {
+  display: none;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+#bouton_menu_burger img {
+  width: 40px;
+  height: 40px;
+}
+
+#menu_burger {
+  display: none;
+}
+
+#noir_menu {
+  display: none;
+}
+
+#menu_burger ul {
+  margin: 0;
+  padding: 0;
+}
+
+#menu_burger ul li {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  padding-left: 30px;
+}
+
+#menu_burger a {
+  color: black;
+  text-decoration: none;
+}
+
+#menu_burger li:hover {
+  background-color: #dedede;
 }
 
 #titre {
@@ -193,6 +241,7 @@ ul#menu {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
  
   section#histoire {
@@ -213,4 +262,392 @@ ul#menu {
     float: right;
     margin-bottom: 40px;
     margin-left: 2%
+  }
+
+  /* ///////// CARTES RECETTES //////////// */
+
+  section#recettes {
+    background-color: #e7dfc5;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 60px;
+  }
+  
+  #recette_grille {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+  }
+  
+  .recette_carte
+  {
+    background-color: white;
+    width: 310px;
+    height: 380px;
+    margin: auto;
+    box-shadow: 5px 5px 8px rgba(0,0,0,0.6);
+  }
+  
+  .recette_carte:hover {
+    box-shadow: 8px 8px 8px rgba(0,0,0,0.7);
+  }
+  
+  .carte_header {
+    width: 310px;
+    height: 200px;
+  }
+  
+  .carte_body {
+    width: 280px;
+    height: 100px;
+    padding: 15px;
+  }
+  
+  .carte_footer {
+    width: 295px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 15px;
+  }
+  
+  .carte_footer a {
+    color: #c47723;
+    text-decoration: none;
+    font-weight: bold;
+  
+  }
+  
+  .carte_footer a:hover {
+    text-decoration: underline;
+  
+  }
+  
+  .carte_body h3 {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  
+  .carte_body p {
+    color: rgba(0,0,0,0.6);
+  }
+  
+  .carte1{
+    grid-row: 1 span 1;
+    grid-column: 1 span 1;
+  }
+  
+  .carte2{
+    grid-row: 1 span 1;
+    grid-column: 2 span 1;
+  }
+  
+  .carte3{
+    grid-row: 1 span 1;
+    grid-column: 3 span 1;
+  }
+  
+  .carte4{
+    grid-row: 2 span 1;
+    grid-column: 1 span 1;
+  }
+  
+  .carte5{
+    grid-row: 2 span 1;
+    grid-column: 2 span 1;
+  }
+  
+  .carte6{
+    grid-row: 2 span 1;
+    grid-column: 3 span 1;
+  }
+
+  /* /////////// ACHAT ///////// */
+
+  section#achat {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 60px;
+  }
+  
+  form {
+    line-height: 40px;
+    text-align: center;
+  }
+  
+  .choix {
+    color: rgba(0,0,0,0.6);
+  }
+  
+  input {
+    font-size: 16px;
+  }
+  
+  select {
+    height: 25px;
+    font-size: 16px;
+  }
+  
+  hr {
+    width: 20%;
+  }
+  
+  input#adresse {
+    width: 300px;
+  }
+
+  /* /////////// MODAL ///////////// */
+
+  #noir_modal {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+
+  #noir_modal.show {
+    z-index: 50;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  #modal {
+    position: fixed;
+    z-index: -1;
+    top: 0vh;
+    left: 0;
+    right: 0;
+    bottom: 15vh;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 30px;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+  }
+
+  #modal.show {
+    z-index: 51;
+    opacity: 1;
+    top: 10vh;
+    bottom: 10vh;
+    transition: top 0.3s ease-out,bottom 0.3s ease-out, opacity 0.3s ease-out;
+  }
+
+  #contenu_modal {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  #croix {
+    width: 35px;
+    height: 35px;
+    opacity: 0.6;
+    float: right;
+    cursor: pointer;
+  }
+
+  #croix:hover {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 1070px) {
+
+    li.menu_item {
+      width: 120px;
+    }
+  
+    #recette_grille {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+    }
+  
+    .carte1{
+      grid-row: 1 span 1;
+      grid-column: 1 span 1;
+    }
+  
+    .carte2{
+      grid-row: 1 span 1;
+      grid-column: 2 span 1;
+    }
+  
+    .carte3{
+      grid-row: 2 span 1;
+      grid-column: 1 span 1;
+    }
+  
+    .carte4{
+      grid-row: 2 span 1;
+      grid-column: 2 span 1;
+    }
+  
+    .carte5{
+      grid-row: 3 span 1;
+      grid-column: 1 span 1;
+    }
+  
+    .carte6{
+      grid-row: 3 span 1;
+      grid-column: 2 span 1;
+    }
+  
+  
+  
+  }
+  
+  @media screen and (max-width: 770px) {
+  
+    header h1 {
+      font-size: 3em;
+    } 
+  
+    header h2 {
+      font-size: 1.2em;
+    } 
+  
+    #bouton_menu_burger {
+      display: block;
+    }
+
+    #menu_burger {
+      display: block;
+      position: fixed;
+      background-color: white;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      transition: width 0.3s ease-out;
+      overflow: hidden;
+    }
+    
+    #noir_menu {
+      display: block;
+      position: fixed;
+      z-index: -2;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: black;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #menu_burger.show {
+      z-index: 99;
+      width: 80%;
+      transition: width 0.3s ease-out;
+    }
+
+    #noir_menu.show {
+      z-index: 98;
+      opacity: 0.6;
+      transition: opacity 0.3s ease-out;
+    }
+  
+    section#pres {
+      text-align: center;
+    }
+  
+    li.menu_item {
+      display: none;
+    }
+  
+    .widget_container {
+      width: 110px;
+      height: 110px;
+    }
+  
+    .widget_item {
+      width: 70px;
+      height: 70px;
+    } 
+  
+    .widget_item img {
+      width: 35px;
+      height: 35px;
+      margin-top: 18px;
+    }
+  
+    #pres_image {
+      max-width: 280px;
+      max-height: 280px;
+      float: none;
+    }
+  
+    section#histoire {
+      text-align: center;
+    }
+  
+    .histoire_image_gauche {
+      float: none;
+      margin-bottom: 20px;
+    }
+  
+    .histoire_image_droite {
+      float: none;
+      margin-bottom: 20px;
+    }
+  
+  }
+  
+  @media screen and (max-width: 690px) {
+
+    header {
+      height: 50vh;
+    }
+  
+    #recette_grille {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
+      grid-gap: 30px;
+    }
+  
+    .carte1{
+      grid-row: 1 span 1;
+      grid-column: 1 span 1;
+    }
+  
+    .carte2{
+      grid-row: 2 span 1;
+      grid-column: 1 span 1;
+    }
+  
+    .carte3{
+      grid-row: 3 span 1;
+      grid-column: 1 span 1;
+    }
+  
+    .carte4{
+      grid-row: 4 span 1;
+      grid-column: 1 span 1;
+    }
+  
+    .carte5{
+      grid-row: 5 span 1;
+      grid-column: 1 span 1;
+    }
+  
+    .carte6{
+      grid-row: 6 span 1;
+      grid-column: 1 span 1;
+    }
+  
+  
   }
